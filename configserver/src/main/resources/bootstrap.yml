@@ -3,13 +3,15 @@ spring:
     name: config-server
   profiles:
     active: native
-
+#      - native, git
   cloud:
     config:
       server:
         native:
           search-locations: classpath:/config
-
+#        git:
+#          uri: https://github.com/didbre/config.git
+#          search-paths: licensing-service
 
 server:
   port: 8071
@@ -19,3 +21,5 @@ management:
     web:
       exposure:
         include: "*"
+encrypt:
+  key: secretkey
