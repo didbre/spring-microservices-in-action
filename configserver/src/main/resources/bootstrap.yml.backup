@@ -12,6 +12,7 @@ spring:
 #        git:
 #          uri: https://github.com/didbre/config.git
 #          search-paths: licensing-service
+        bootstrap: false
 
 server:
   port: 8071
