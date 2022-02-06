@@ -1,9 +1,6 @@
 package com.optimagrowth.license.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "licenses")
@@ -27,6 +24,16 @@ public class License
 
     @Column(name = "comment")
     private String comment;
+
+    @Transient
+    private String organizationName;
+
+    @Transient
+    private String contactName;
+    @Transient
+    private String contactPhone;
+    @Transient
+    private String contactEmail;
 
     public License withComment(String comment) {
         this.comment = comment;
@@ -61,6 +68,46 @@ public class License
     public void setOrganizationId(String organizationId)
     {
         this.organizationId = organizationId;
+    }
+
+    public String getOrganizationName()
+    {
+        return organizationName;
+    }
+
+    public String getContactName()
+    {
+        return contactName;
+    }
+
+    public void setContactName(String contactName)
+    {
+        this.contactName = contactName;
+    }
+
+    public String getContactPhone()
+    {
+        return contactPhone;
+    }
+
+    public void setContactPhone(String contactPhone)
+    {
+        this.contactPhone = contactPhone;
+    }
+
+    public String getContactEmail()
+    {
+        return contactEmail;
+    }
+
+    public void setContactEmail(String contactEmail)
+    {
+        this.contactEmail = contactEmail;
+    }
+
+    public void setOrganizationName(String organizationName)
+    {
+        this.organizationName = organizationName;
     }
 
     public String getProductName()
@@ -103,6 +150,10 @@ public class License
                 ", productName='" + productName + '\'' +
                 ", licenseType='" + licenseType + '\'' +
                 ", comment='" + comment + '\'' +
+                ", organizationName='" + organizationName + '\'' +
+                ", contactName='" + contactName + '\'' +
+                ", contactPhone='" + contactPhone + '\'' +
+                ", contactEmail='" + contactEmail + '\'' +
                 '}';
     }
 }
