@@ -4,6 +4,8 @@ spring:
     profiles:
       active: dev
     cloud:
-        config: 
-            uri: http://localhost:8071
+        config:
+          #    using docker-compose on a mac os x, use this hostname instead of localhost, see
+          #    https://stackoverflow.com/questions/24319662/from-inside-of-a-docker-container-how-do-i-connect-to-the-localhost-of-the-mach
+            uri: http://host.docker.internal:8071
 

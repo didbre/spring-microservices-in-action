@@ -4,7 +4,7 @@ spring:
 
   cloud:
     config:
-      uri: http://localhost:8071
+      uri: http://host.docker.internal:8071
 
     loadbalancer:
       ribbon:
