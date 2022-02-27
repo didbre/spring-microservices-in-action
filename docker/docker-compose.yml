@@ -9,8 +9,9 @@ services:
       POSTGRES_PASSWORD: "postgres"
       POSTGRES_DB:       "ostock_dev"
     volumes:
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
-      - ./data.sql:/docker-entrypoint-initdb.d/data.sql
+#     ajouter un ordre de procession de fichier (10, 20, etc)
+      - ./init.sql:/docker-entrypoint-initdb.d/10-init.sql
+      - ./data.sql:/docker-entrypoint-initdb.d/20-data.sql
     networks:
       backend:
         aliases:
