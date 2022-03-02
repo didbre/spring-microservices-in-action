@@ -9,3 +9,7 @@ spring:
 management.endpoint.health:
   enabled: true
   show-details: always
+
+management.endpoint.gateway:
+    enabled: true
+management.endpoints.web.exposure.include: gateway
