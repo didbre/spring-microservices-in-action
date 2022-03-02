@@ -13,3 +13,9 @@ management.endpoint.health:
 management.endpoint.gateway:
     enabled: true
 management.endpoints.web.exposure.include: gateway
+
+logging:
+  level:
+    com.netflix: WARN
+    org.springframework.web: WARN
+    com.optimagrowth: DEBUG
