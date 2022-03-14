@@ -21,6 +21,8 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+
+  # http 127.0.0.1:8071/actuator/health
   configserver:
     image: ostock/configserver:0.0.1-SNAPSHOT
     ports:
@@ -31,6 +33,9 @@ services:
       backend:
         aliases:
           - "configserver"
+
+  # http 127.0.0.1:8070/actuator/health
+  # console web : http://127.0.0.1:8070
   eurekaserver:
     image: ostock/eurekaserver:0.0.1-SNAPSHOT
     ports:
@@ -44,6 +49,8 @@ services:
       backend:
         aliases:
           - "eurekaserver"
+
+  # http 127.0.0.1:8072/actuator/health
   gatewayserver:
     image: ostock/gatewayserver:0.0.1-SNAPSHOT
     ports:
@@ -66,6 +73,7 @@ services:
       backend:
         aliases:
           - "gateway"
+
   licensingservice:
     image: ostock/licensing-service:0.0.1-SNAPSHOT
     environment:
@@ -82,6 +90,10 @@ services:
     networks:
       - backend
 
+  # http 127.0.0.1:8072/organization/actuator/health
+  # http 127.0.0.1:8072/organization/v1/organization/d898a142-de44-466c-8c88-9ceb2c2429d3
+  # important : on accede au service via le gateway server via le port 8072. Si on utilise le port 8081 definit
+  # ci-dessous, on a une erreur 404, ce qui est correct
   organizationservice:
     image: ostock/organization-service:0.0.1-SNAPSHOT
     environment:
