@@ -1,5 +1,6 @@
 package com.optimagrowth.license.config;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Service;
 
@@ -9,6 +10,13 @@ public class ServiceConfig
 {
     private String property;
 
+    @Value("${redis.server}")
+    private String redisServer;
+
+    @Value("${redis.port}")
+    private String redisPort;
+
+
     public String getProperty()
     {
         return property;
@@ -17,5 +25,25 @@ public class ServiceConfig
     public void setProperty(String property)
     {
         this.property = property;
+    }
+
+    public String getRedisServer()
+    {
+        return redisServer;
+    }
+
+    public void setRedisServer(String redisServer)
+    {
+        this.redisServer = redisServer;
+    }
+
+    public String getRedisPort()
+    {
+        return redisPort;
+    }
+
+    public void setRedisPort(String redisPort)
+    {
+        this.redisPort = redisPort;
     }
 }
